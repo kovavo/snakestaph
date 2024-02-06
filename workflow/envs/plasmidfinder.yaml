@@ -1,0 +1,7 @@
+name: plasmidfinder
+channels:
+  - defaults
+  - bioconda
+  - conda-forge
+dependencies:
+  - plasmidfinder

@@ -1,0 +1,8 @@
+name: biopython
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - biopython=1.78
+  - bcbio-gff=0.7.0
+  - pandas

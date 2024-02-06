@@ -1,0 +1,8 @@
+name: islandpath
+channels:
+  - defaults
+  - bioconda
+  - conda-forge
+dependencies:
+  - islandpath=1.0.6-0
+  - perl-bioperl=1.7.2

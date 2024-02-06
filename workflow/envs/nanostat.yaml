@@ -1,0 +1,7 @@
+name: nanostat
+channels:
+  - bioconda
+  - conda-forge
+dependencies:
+  - nanostat
+  - python>=3

@@ -1,0 +1,6 @@
+name: phispy
+channels:
+  - bioconda
+  - conda-forge
+dependencies:
+  - phispy

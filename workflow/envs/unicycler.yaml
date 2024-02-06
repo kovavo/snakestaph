@@ -1,0 +1,9 @@
+name: unicycler
+channels:
+  - bioconda
+  - conda-forge
+dependencies:
+#  - tbb=2020.2 #new version breaks pilon polishing
+#  - spades=3.13.0 #newer versions breaks unicycler optimizing
+  - unicycler=0.5.0
+  - samtools

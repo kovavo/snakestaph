@@ -1,0 +1,7 @@
+name: bacmetscan
+channels:
+  - bioconda
+  - conda-forge
+dependencies:
+  - perl
+  - blast>=2.10.1

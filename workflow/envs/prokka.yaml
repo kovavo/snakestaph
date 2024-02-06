@@ -1,0 +1,8 @@
+name: prokka
+channels:
+  - defaults
+  - bioconda
+  - conda-forge
+dependencies:
+  - prokka=1.14.6
+  - parallel>=20180522
