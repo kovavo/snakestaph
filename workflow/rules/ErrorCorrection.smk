@@ -8,8 +8,8 @@ ruleorder:  filtlong_short_read_reference > filtlong > fastp
 
 rule fastp:
     input:
-        left = lambda wildcards: config['DF'].loc[config['DF']['READ_BASENAME'] == wildcards.filename]['ILLUMINA_R1_RAW'],
-        right = lambda wildcards: config['DF'].loc[config['DF']['READ_BASENAME'] == wildcards.filename]['ILLUMINA_R2_RAW'],
+        left = lambda wildcards: config['DF'].loc[config['DF']['BASENAME'] == wildcards.filename]['ILLUMINA_R1_RAW'],
+        right = lambda wildcards: config['DF'].loc[config['DF']['BASENAME'] == wildcards.filename]['ILLUMINA_R2_RAW'],
     output:
         left = 'reads/corrected/{filename}_ILLUMINA_R1.fastq.00.0_0.cor.fastq.gz',
         right = 'reads/corrected/{filename}_ILLUMINA_R2.fastq.00.0_0.cor.fastq.gz',
@@ -26,7 +26,7 @@ rule fastp:
 # filtering nanopore reads
 rule filtlong:
     input:
-        lambda wildcards: config['DF'].loc[config['DF']['READ_BASENAME'] == wildcards.filename]['NANOPORE_RAW'],
+        lambda wildcards: config['DF'].loc[config['DF']['BASENAME'] == wildcards.filename]['NANOPORE_RAW'],
     output:
         'reads/corrected/{filename}_NANOPORE.fastq.gz'
     threads: workflow.cores
@@ -43,9 +43,9 @@ rule filtlong:
 #use paired end from illumina for reference
 rule filtlong_short_read_reference:
     input:
-        long = lambda wildcards: config['DF'].loc[config['DF']['READ_BASENAME'] == wildcards.filename]['NANOPORE_RAW'],
-        left = lambda wildcards: config['DF'].loc[config['DF']['READ_BASENAME'] == wildcards.filename]['ILLUMINA_R1_RAW'],
-        right = lambda wildcards: config['DF'].loc[config['DF']['READ_BASENAME'] == wildcards.filename]['ILLUMINA_R2_RAW'],
+        long = lambda wildcards: config['DF'].loc[config['DF']['BASENAME'] == wildcards.filename]['NANOPORE_RAW'],
+        left = lambda wildcards: config['DF'].loc[config['DF']['BASENAME'] == wildcards.filename]['ILLUMINA_R1_RAW'],
+        right = lambda wildcards: config['DF'].loc[config['DF']['BASENAME'] == wildcards.filename]['ILLUMINA_R2_RAW'],
     output:
         'reads/corrected/{filename}_NANOPORE-SE.fastq.gz'
     threads: workflow.cores
